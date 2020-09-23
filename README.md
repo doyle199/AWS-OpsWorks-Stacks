@@ -82,3 +82,74 @@ Choose the S3 bucket you created.
 Upload the “iis-cookbook.zip” and “default.htm” files you created on your computer. Remember: the “default.htm” is in the folder called “iis-application”.
 
 ![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/bucket5.png)
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/bucket6.png)
+
+Click on the “iis-cookbook.zip”.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/cookbook.png)
+
+Click on the “Make public” button near the top. Make a record of the S3 Object URL at the bottom. It will be needed to connect to OpsWorks Stacks.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/zip.png)
+
+Click on the Permissions tab. Click on Bucket Policy.Enter the following in the editor and make sure the correct bucket name is put where it says “YOUR-BUCKET-NAME”: https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/template3.jscsrc
+
+Click save.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/pub.png)
+
+Navigate to the AWS OpsWorks Stacks created earlier. Click on Layers in the left menu. Click on add layer at the bottom right of the page. Give it a name and a short name. Select a security group if necessary. Click Add Layer.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/layer.png)
+
+To enable custom cookbooks for the stack, go to the main page of the OpsWorks Stack you’ve been working with click on Stack Settings on the right of the page.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/run.png)
+
+Check the box so it says Yes next to Use custom Chef cookbooks. Choose “S3 Archive” for Repository type. Copy and paste the S3 cookbook object URL from earlier for Repository URL. Click Save.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/ore.png)
+
+To assign the recipe to a lifecycle event, on the main page go to Layers in the left menu. Click on Recipes.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/recipes_4.png)
+
+In the Setup box type “iis-cookbook::install”. In the Deploy box type “iis-cookbook::deploy”. Then choose the plus symbol to add the recipes to the layer.	Click Save.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/Save_2.png)
+
+Click Add instance on the right side of the layer.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/ad_in.png)
+
+Create a hostname.	Choose the correct instance size.	Choose a subnet.	In Advanced make sure its 24/7.	Click Add Instance.
+
+Click start.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/start.png)
+
+Create another instance in a different availability zone to be used with a load balancer later.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/online.png)
+
+If you did not deploy the instances with working lifecycle events you can do the following: Click on Stack in the left menu, Click on Run Command. 
+
+Choose the dropdown Update Custom Cookbooks next to Command. Click on Update Custom Cookbook.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/update.png)
+
+After the update finishes run the execute recipes command. Make sure the correct instances are selected.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/success.png)
+
+To check if the IIS is installed and running sign into AWS with the user that you assigned RDP access to. Go to your OpsWorks stack. Click on instances. Choose an instance you installed the custom cookbook recipe to. Click on RDP in the upper right. Set session to two hours. Click on generate password.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/generate.png)
+
+Take note of the password, the instance’s public DNS name and username. You may need them.	Click on Download an RDP file. Click Acknowledge and close.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/ack.png)
+
+Click on the RDP file you downloaded. You may need to download Window Remote Desktop first.
+
