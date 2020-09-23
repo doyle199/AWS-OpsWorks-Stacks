@@ -151,5 +151,48 @@ Take note of the password, the instance’s public DNS name and username. You ma
 
 ![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/ack.png)
 
-Click on the RDP file you downloaded. You may need to download Window Remote Desktop first.
+Click on the RDP file you downloaded. You may need to download Window Remote Desktop first.	Enter the password.	Go to the C drive.	You should see a folder named “inetpub”.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/inetpub.png)
+
+Go to Control Panel > Administrative Tools > Services.	Scroll to the bottom.	You should see a service called “World Wide Web Publishing Service” and it should have a status of “Running”.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/running.png)
+
+If you see the two things mentioned above, it is working correctly. Next, to deploy an app sign back in as the root user and go back to your OpsWorks stack. Click on Apps in the left menu. Click on Add app.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/add_app.png)
+
+Name the App. Change Repository Type to Other. Add the following Environment Variables with your relevant information:
+
+S3REGION us-west-2
+
+BUCKET cca640p2
+
+FILENAME default.htm
+
+Click Add App.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/add_app2.png)
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/add_app3.png)
+
+Click deploy on the right side.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/deploy.png)
+
+Click Deploy.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/deploy2.png)
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/deploy3.png)
+
+Click into the instance. Click on the DNS link. You should see a webpage with your name on it.
+
+![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/hello.png)
+
+
+
+
+
 
