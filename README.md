@@ -1,7 +1,7 @@
 # AWS-OpsWorks-Stacks
 AWS OpsWorks Stacks
 
-First, one must create a basic application server stack. From the AWS Management Console go to AWS OpsWorks Stacks. Click on stacks in the left menu. Click on Ass stack on the right side.
+First, one must create a basic application server stack. From the AWS Management Console go to AWS OpsWorks Stacks. Click on stacks in the left menu. Click on Add stack on the right side.
 
 ![alt text](https://github.com/doyle199/AWS-OpsWorks-Stacks/blob/master/add_stack.png)
 
